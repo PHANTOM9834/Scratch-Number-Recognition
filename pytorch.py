@@ -74,32 +74,3 @@ print("生成された Scratch スプライト:", artifact.path)
 
 verify(model, example_input, artifact)
 print("Scratch 変換の検証が完了しました")
-
-import matplotlib.pyplot as plt
-from torchvision import datasets, transforms
-import torch
-
-class Binarize(object):
-    def __call__(self, img):
-        return (img > 0.5).float()
-
-transform = transforms.Compose([
-    transforms.ToTensor(),
-    Binarize()
-])
-
-dataset = datasets.MNIST(root="./data", train=True, download=True, transform=transform)
-
-plt.figure(figsize=(10, 10))
-
-for i in range(25):
-    img, label = dataset[i]
-    img = img.squeeze(0).numpy()
-
-    plt.subplot(5, 5, i + 1)
-    plt.imshow(img, cmap="gray")
-    plt.title(f"{label}")
-    plt.axis("off")
-
-plt.tight_layout()
-plt.show()
