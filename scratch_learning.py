@@ -1,9 +1,12 @@
+import ssl
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import datasets, transforms
 import numpy as np
 from cattorch import transpile, verify
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 class Binarize(object):
     def __call__(self, img):
