@@ -1,5 +1,8 @@
-import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
+import os
+import certifi
+
+os.environ['SSL_CERT_FILE'] = certifi.where()
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -7,6 +10,7 @@ from torchvision import datasets, transforms
 import numpy as np
 from cattorch import transpile, verify
 
+# 画像を2値化する前処理
 class Binarize(object):
     def __call__(self, img):
         return (img > 0.5).float()
@@ -16,6 +20,7 @@ transform = transforms.Compose([
     Binarize()
 ])
 
+# ここで自動ダウンロードが行われます（certifiのおかげでSSLエラーが防げます）
 train_dataset = datasets.MNIST(root="./data", train=True, download=True, transform=transform)
 train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=64, shuffle=True)
 
