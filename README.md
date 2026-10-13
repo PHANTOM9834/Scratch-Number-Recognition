@@ -1,7 +1,7 @@
 # Scratch-
 ビジュアルプログラミング言語であるScratchで数字を認識して出力するニューラルネットワークのプロジェクトとPythonで書かれた学習用のスクリプトおよびScratchの推論用のスプライトを作成してくれるコードが入っています。
 - Github, Python, Scratchを使い慣れている人向けに説明しています。慣れていない人は以下の記事を見てください。詳細の説明をしています。
-- [このリポジトリの内容の使用方法]()
+- [このリポジトリの内容の使用方法](https://zenn.dev/phantm9834/articles/3638fe4c7a9c69)
 - [PythonをWindowsに入れる方法](https://zenn.dev/phantm9834/articles/2b322264323436)
 # 文字認識.sb3の使用方法
 1. Githubの`文字認識.sb3`をダウンロードする
